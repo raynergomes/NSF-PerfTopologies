@@ -19,7 +19,7 @@ listenPort = 4444
 targetHost = "10.0.0.33"
 
 # Thread in the code
-We will explain the execution structure of the codes' functions just for clarity. Users do not need to be concerned about this; it is just for programmers who like to change the code. To avoid bottlenecks related to receiving messages, carry on a function and deliver the messages to the next function, which has three internal threads. They are:
+We will explain the execution structure of the codes' functions just for clarity. Users do not need to be concerned about this; it is just for programmers who like to change the code. To avoid bottlenecks related to receiving messages, carry on a function and deliver the messages to the following function, which has three internal threads. They are:
 
 1. threadListen: This thread is responsible for receiving a datagram and forwards to thread<Function>
 2. threadForward: This thread is responsible for sending a datagram to another process; it can be another function or the final host.
@@ -34,3 +34,9 @@ We will explain the execution structure of the codes' functions just for clarity
 4. RTTAnalysis.py: Implements a function to count and save the number of characters received over time.
 5. SendDatagram.py: The client program is used to start sending messages. 
 6. ServerUDP.py: The final point of all messages. It is responsible for saving all messages and creating statics in the final execution.
+
+# GNS3 Topologies
+
+In the link below, there are three GNS3 projects were used to simulate three different topologies. Each host is a docker container; thus, to carry on the simulation, we need to copy each Python file and update the IP address in the files.
+
+https://drive.google.com/file/d/1c2YZpzwauLiOcZo7AtWZ5m30KJ-P4yp2/view?usp=drive_link
